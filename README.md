@@ -10,3 +10,9 @@
 
 ### How to bundle app
 - `npm run build`
+
+### How to test with google lighthouse
+- `npm run build`
+- Navigate to dist folder
+- Run python server
+- Test with google lighthouse
