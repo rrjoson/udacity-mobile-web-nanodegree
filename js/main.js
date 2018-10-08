@@ -168,6 +168,7 @@ const createRestaurantHTML = restaurant => {
   li.append(image);
 
   const favorite = document.createElement("button");
+  favorite.style.float = "right";
 
   if (restaurant.is_favorite) {
     favorite.innerHTML = "★";
