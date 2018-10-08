@@ -195,8 +195,19 @@ const getParameterByName = (name, url) => {
 /**
  * Submit and validate review form
  */
-window.createReview = event => {
-  event.preventDefault();
+window.createReview = () => {
+  // Access the form element...
+  var form = document.getElementById("review-form");
+
+  // ...and take over its submit event.
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    addReview();
+  });
+};
+
+const addReview = () => {
   const author = document.getElementById("review-author").value;
   const comment = document.getElementById("review-comment").value;
   const rating = document.querySelector("#rating-values-list option:checked")

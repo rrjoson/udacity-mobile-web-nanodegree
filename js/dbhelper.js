@@ -332,4 +332,42 @@ export default class DBHelper {
         });
       });
   }
+
+  /**
+   * Update is_favorite on the restaurant
+   * @param restaurantId
+   * @param isFavorite
+   */
+  static updateFavorite(restaurantId, isFavorite) {
+    const favorite = () => {
+      if (isFavorite) {
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    let restaurantObject = {
+      is_favorite: favorite()
+    };
+    const options = {
+      method: "PUT",
+      body: JSON.stringify(restaurantObject),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    };
+
+    fetch(`${this.DATABASE_URL}/${restaurantId}`, options).then(() => {
+      const dbPromise = idb.open("restaurantsDB");
+      dbPromise.then(db => {
+        const tx = db.transaction("restaurants", "readwrite");
+        const store = tx.objectStore("restaurants");
+        store.get(restaurantId).then(restaurant => {
+          restaurant.is_favorite = isFavorite;
+          store.put(restaurant);
+        });
+      });
+    });
+  }
 }

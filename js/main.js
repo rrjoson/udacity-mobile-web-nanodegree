@@ -167,6 +167,43 @@ const createRestaurantHTML = restaurant => {
   image.alt = restaurant.name;
   li.append(image);
 
+  const favorite = document.createElement("button");
+
+  if (restaurant.is_favorite) {
+    favorite.innerHTML = "★";
+    favorite.setAttribute(
+      "aria-label",
+      "Remove " + restaurant.name + " from list of favorites."
+    );
+  } else {
+    favorite.innerHTML = "☆";
+    favorite.setAttribute(
+      "aria-label",
+      "Add " + restaurant.name + " to list of favorites."
+    );
+  }
+
+  favorite.onclick = () => {
+    if (restaurant.is_favorite) {
+      favorite.innerHTML = "☆";
+      favorite.setAttribute(
+        "aria-label",
+        "Add " + restaurant.name + " to list of favorites."
+      );
+    } else {
+      favorite.innerHTML = "★";
+      favorite.setAttribute(
+        "aria-label",
+        "Remove " + restaurant.name + " from list of favorites."
+      );
+    }
+
+    DBHelper.updateFavorite(restaurant.id, restaurant.is_favorite);
+    restaurant.is_favorite = !restaurant.is_favorite;
+  };
+
+  li.append(favorite);
+
   const name = document.createElement("h3");
   name.innerHTML = restaurant.name;
   li.append(name);
