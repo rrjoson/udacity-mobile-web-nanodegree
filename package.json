@@ -4,8 +4,8 @@
   "description": "--- #### _Three Stage Course Material Project - Restaurant Reviews_",
   "main": "sw.js",
   "scripts": {
-    "start": "rm -rf dist .cache && parcel index.html restaurant.html --no-cache",
-    "build": "rm -rf dist && parcel build index.html restaurant.html"
+    "start": "rm -rf public .cache && parcel index.html restaurant.html --no-cache",
+    "build": "rm -rf public && parcel build index.html restaurant.html -d public"
   },
   "repository": {
     "type": "git",
