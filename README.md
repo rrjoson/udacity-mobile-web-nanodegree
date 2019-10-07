@@ -1,6 +1,9 @@
 # Mobile Web Specialist Certification Course Project
 ---
 
+### Demo
+- https://udacity-mobile-web-nanodegree.rrjoson.now.sh
+
 ### Lighthouse Results
 ![Lighthouse](https://github.com/rrjoson/udacity-mobile-web-nanodegree/blob/master/Screen%20Shot%202019-10-07%20at%207.02.09%20PM.png?raw=true)
 
@@ -18,3 +21,6 @@
 - Navigate to dist folder
 - Run python server
 - Test with google lighthouse
+
+### Todo
+- [ ] Add features to README
