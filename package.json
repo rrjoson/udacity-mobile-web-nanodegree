@@ -19,7 +19,7 @@
   "homepage": "https://github.com/udacity/mws-restaurant-stage-1#readme",
   "devDependencies": {
     "cssnano": "^4.1.4",
-    "parcel": "^1.12.4"
+    "parcel": "^2.8.2"
   },
   "dependencies": {
     "date-fns": "^1.29.0",
